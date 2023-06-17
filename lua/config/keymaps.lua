@@ -51,12 +51,11 @@ vim.keymap.set("n", "<A-k>", "<C-w><C-k>")
 vim.keymap.set("n", "<A-l>", "<C-w><C-l>")
 vim.keymap.set("n", "<A-h>", "<C-w><C-h>")
 
--- Buffer resizing.
-vim.keymap.set("n", "<S-h>", ":call ResizeLeft(3)<CR><Esc>")
-vim.keymap.set("n", "<S-l>", ":call ResizeRight(3)<CR><Esc>")
-vim.keymap.set("n", "<S-k>", ":call ResizeUp(1)<CR><Esc>")
---  <S-j> is my concatinate key (2 lines)
--- vim.keymap.set("n", "<S-j>", ":call ResizeDown(1)<CR><Esc>")
+-- Buffer resizing. TODO: conflic! Find another kemap to resize
+-- vim.keymap.set("n", "<S-h>", ":call ResizeLeft(3)<CR><Esc>")
+-- vim.keymap.set("n", "<S-l>", ":call ResizeRight(3)<CR><Esc>")
+-- vim.keymap.set("n", "<S-k>", ":call ResizeUp(1)<CR><Esc>")
+-- vim.keymap.set("n", "<S-j>", ":call ResizeDown(1)<CR><Esc>")   -- <S-j> concatinate 2 lines
 
 -- Buffer switching.
 vim.keymap.set("n", "<S-Tab>", ":BufferLineCyclePrev<CR>")
