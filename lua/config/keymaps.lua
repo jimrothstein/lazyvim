@@ -24,10 +24,12 @@ vim.keymap.set("n", "<leader>ic", "yypVr-I# <ESC>")
 --TODO:  virtualedit mode
 --vim.keymap.set("n", "<leader><Tab>", "12i<TAB>##")
 --  move cursor 12 tabs, insert ##
+--
+--  cmp is hijacking my TAB key
+-- vim.keymap.set("i", "<Tab>", " <Tab>")
+--
+--
 
--- keeps prior word
---
---
 -- vim.keymap.set("x", '<leader>p', "\"_dP)
 
 --      required, not sure
