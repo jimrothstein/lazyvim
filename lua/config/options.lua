@@ -3,11 +3,6 @@
 -- Add any additional options here
 --
 
-
-i  <Tab>       * <Lua 1032: ~/.local/share/nvim/lazy/nvim-cmp/lua/cmp/utils/keymap.lua:127>
-                 cmp.utils.keymap.set_map
-	Last set from Lua
-
 --  14June 2023
 --  TODO
 --    -     mess, restructed ... need to restore to working conditin
