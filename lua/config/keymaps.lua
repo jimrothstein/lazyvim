@@ -27,10 +27,12 @@ vim.keymap.set("n", "<leader>gC", ":cd ~/.config/nvim/lua/config/<CR>")
 --TODO:  virtualedit mode
 --vim.keymap.set("n", "<leader><Tab>", "12i<TAB>##")
 --  move cursor 12 tabs, insert ##
+--
+--  cmp is hijacking my TAB key
+-- vim.keymap.set("i", "<Tab>", " <Tab>")
+--
+--
 
--- keeps prior word
---
---
 -- vim.keymap.set("x", '<leader>p', "\"_dP)
 
 --      required, not sure
