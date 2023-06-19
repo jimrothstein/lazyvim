@@ -56,6 +56,9 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 -- Set completeopt to have a better completion experience
 vim.cmd([[set completeopt=menuone,noinsert,noselect]])
+-- another says
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
+
 --
 
 --  remove all that highlighting, except during search
