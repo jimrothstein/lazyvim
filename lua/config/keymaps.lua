@@ -21,6 +21,9 @@ vim.keymap.set("i", "kk", "<ESC>")
 --  insert # --------...
 vim.keymap.set("n", "<leader>ic", "yypVr-I# <ESC>")
 
+-- cd ~/.config/nvim/lua/config/
+vim.keymap.set("n", "<leader>gC", ":cd ~/.config/nvim/lua/config/<CR>")
+
 --TODO:  virtualedit mode
 --vim.keymap.set("n", "<leader><Tab>", "12i<TAB>##")
 --  move cursor 12 tabs, insert ##
