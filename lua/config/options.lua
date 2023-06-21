@@ -9,6 +9,7 @@
 --    -     cmp?  is hijacking <Tab>  - how to disable, REF:  https://github.com/hrsh7th/nvim-cmp/issues/880
 --
 vim.cmd([[ let R_assign=2 ]])
+vim.cmd([[ let R_enable_comment = 1 ]]) -- toggle comments <leader>xx
 -- Options are automatically loaded before lazy.nvim startup
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
