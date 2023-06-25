@@ -14,9 +14,19 @@
 -- 2023-06-03
 --      vim.keymap.set("n", "<leader>pv", vim.cmd.e)
 -- 31MAY2023
+----------------------------------
+--
+--
+vim.keymap.set("n", "<leader>:", ":RStop")
+
+-- Experimental
+vim.keymap.set("n", "<leader>:l", "<ALT-l>")
+vim.keymap.set("n", "<leader>:h", "<ALT-h>")
+
 --  easy ESC
 vim.keymap.set("i", "jj", "<ESC>")
 vim.keymap.set("i", "kk", "<ESC>")
+----------------------------------
 
 --  insert # --------...
 vim.keymap.set("n", "<leader>ic", "yypVr-I# <ESC>")
@@ -24,6 +34,7 @@ vim.keymap.set("n", "<leader>ic", "yypVr-I# <ESC>")
 -- cd ~/.config/nvim/lua/config/
 vim.keymap.set("n", "<leader>gC", ":cd ~/.config/nvim/lua/config/<CR>")
 
+----------------------------------
 --TODO:  virtualedit mode
 --vim.keymap.set("n", "<leader><Tab>", "12i<TAB>##")
 --  move cursor 12 tabs, insert ##
@@ -101,6 +112,26 @@ vim.keymap.set("v", "p", '"_dP')
 -- With this you can use > < multiple time for changing indent when you visual selected text.
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
+
+--  STOLE from :h which-key help
+--
+local wk = require("which-key")
+
+wk.register({
+  ["<leader>"] = {
+    f = {
+      name = "+file", -- optional group name
+      -- vim.keymap.set("n", "<leader>fz", builtin.find_files({ cwd = "~" }))
+      -- ho = { "<cmd>Telescope find_files({cwd = '~'})<cr>", "Find - from home" }, --
+      -- ho = { "builtin.find_files({ cwd = " ~ "})" },
+      -- f = { "<cmd>Telescope find_files<cr>", "Find File" }, -- create a binding with label
+      -- r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File", noremap = false, buffer = 123 }, -- additional options for creating the keymap
+      n = { "FAKE !" }, -- just a label. don't create any mapping
+      e = "FAKE !! ", -- same as above
+    },
+  },
+})
+
 ---------------------- END ALT-Terminal ----------------------
 --      FUTURE
 --
@@ -139,22 +170,3 @@ vim.keymap.set("v", ">", ">gv")
 --   ["<C-Y>"] = { "Scroll up lesser" },
 -- })
 --   ["<C-E>"] = { "Scroll down lesser" },
-
---  STOLE from :h which-key help
-
--- require("which-key").register({
---   f = {
---     name = "file", -- optional group name
---     f = { "<cmd>Telescope find_files<cr>", "Find File" }, -- create a binding with label
---     r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File", noremap = false, buffer = 123 }, -- additional options for creating the keymap
---     n = { "New File" }, -- just a label. don't create any mapping
---     e = "Edit File", -- same as above
---     ["1"] = "which_key_ignore", -- special label to hide it in the popup
---     b = {
---       function()
---         print("bar")
---       end,
---       "Foobar",
---     }, -- you can also pass functions!
---   },
--- }, { prefix = "<leader>" })
