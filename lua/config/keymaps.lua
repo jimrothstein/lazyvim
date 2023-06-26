@@ -61,11 +61,11 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 ---------------------- ALT-Terminal ----------------------
 -- I stole
--- Split navigations.
-vim.keymap.set("n", "<A-j>", "<C-w><C-j>")
-vim.keymap.set("n", "<A-k>", "<C-w><C-k>")
-vim.keymap.set("n", "<A-l>", "<C-w><C-l>")
-vim.keymap.set("n", "<A-h>", "<C-w><C-h>")
+-- Split navigations.  TODO:  jumpto or from Terminal
+vim.keymap.set("n", "<A-j>", "<C-w>j")
+vim.keymap.set("n", "<A-k>", "<C-w>k")
+vim.keymap.set("n", "<A-l>", "<C-w>l")
+vim.keymap.set("n", "<A-h>", "<C-w>h")
 
 -- Buffer resizing. TODO: conflic! Find another kemap to resize
 -- vim.keymap.set("n", "<S-h>", ":call ResizeLeft(3)<CR><Esc>")
@@ -74,8 +74,8 @@ vim.keymap.set("n", "<A-h>", "<C-w><C-h>")
 -- vim.keymap.set("n", "<S-j>", ":call ResizeDown(1)<CR><Esc>")   -- <S-j> concatinate 2 lines
 
 -- Buffer switching.
-vim.keymap.set("n", "<S-Tab>", ":BufferLineCyclePrev<CR>")
-vim.keymap.set("n", "<Tab>", ":BufferLineCycleNext<CR>")
+-- vim.keymap.set("n", "<S-Tab>", ":BufferLineCyclePrev<CR>")
+-- vim.keymap.set("n", "<Tab>", ":BufferLineCycleNext<CR>")
 
 -- Moving lines in visual select.
 -- map("v", "K", ":move '<-2<CR>gv-gv")
@@ -105,7 +105,8 @@ vim.api.nvim_create_autocmd("TermOpen", {
     set_terminal_keymaps()
   end,
 })
-
+-- ALT-Terminal  END
+--
 -- Don't copy the replaced text after pasting.
 vim.keymap.set("v", "p", '"_dP')
 
@@ -129,44 +130,23 @@ wk.register({
       n = { "FAKE !" }, -- just a label. don't create any mapping
       e = "FAKE !! ", -- same as above
     },
+    w = {
+      name = "Windows",
+      Q = { "<cmd>qa<cr>", "Quit and Close All Windows" },
+    },
   },
 })
+---------------------------------------------------------------------------------------------
+-- REF:    https://raw.githubusercontent.com/hackorum/nfs/master/lua/whichkey-config/init.lua
+---------------------------------------------------------------------------------------------
+local mappings = {
+  E = { ":e ~/.config/nvim/init.lua<cr>", "Edit nvim config" },
+  Q = { ":wqa<cr>", "Save & Quit ALL" },
+}
 
----------------------- END ALT-Terminal ----------------------
+local opts = { prefix = "<leader>" }
+wk.register(mappings, opts)
+---------------------- END ----------------------
 --      FUTURE
---
+--  several mappings:
 --  Stole from https://github.com/sum-rock/just-sum-nix/blob/master/homes/modules/neovim/lua/navigation.lua
---
---  ERROR
--- require("which-key").register({
---   w = {
---     name = "Windows",
---     q = { "<cmd>q<cr>", "Quit Window" },
---     Q = { "<cmd>qa<cr>", "Quit All Windows" },
---     h = { "<c-w>h", "Move Left" },
---     j = { "<c-w>j", "Move Down" },
---     k = { "<c-w>k", "Move Up" },
---     l = { "<c-w>l", "Move Right" },
---     s = { "<c-w>s", "Split Horizontally" },
---     v = { "<c-w>v", "Split Vertically" },
--- })
---   },
-
---   h = {
---     name = "Hop",
---     f = { function() hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = false }) end, "Hop Forward on" },
---     F = { function() hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = false }) end, "Hop Backward on" },
---     t = { function() hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = false, hint_offset = -1 }) end, "Hop Forward to" },
---     T = { function() hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = false, hint_offset = -1 }) end, "Hop Backward to" },
---   }
--- }, { prefix = "<leader>" })
-
--- ERROR
---   ["<C-U>"] = { "Scroll up" },
--- require("which-key").register({
---   ["<C-D>"] = { "Scroll down" },
---   ["<C-B>"] = { "Scroll up greater" },
---   ["<C-F>"] = { "Scroll down greater" },
---   ["<C-Y>"] = { "Scroll up lesser" },
--- })
---   ["<C-E>"] = { "Scroll down lesser" },
