@@ -31,8 +31,8 @@ vim.keymap.set("i", "kk", "<ESC>")
 --  insert # --------...
 vim.keymap.set("n", "<leader>ic", "yypVr-I# <ESC>")
 
--- cd ~/.config/nvim/lua/config/
-vim.keymap.set("n", "<leader>gC", ":cd ~/.config/nvim/lua/config/<CR>")
+-- cd ~/.config/nvim/lua/config/ (conflict)
+-- vim.keymap.set("n", "<leader>gC", ":cd ~/.config/nvim/lua/config/<CR>")
 
 ----------------------------------
 --TODO:  virtualedit mode
@@ -53,6 +53,11 @@ vim.keymap.set("n", "<leader>gC", ":cd ~/.config/nvim/lua/config/<CR>")
 local builtin = require("telescope.builtin")
 --------------------------------------------
 -- vim.keymap.set("n", "<leader>fz", builtin.find_files({ cwd = "~" }))
+-- ALMOST:  loads when nvim opens !
+-- vim.keymap.set("n", "<leader>fz", builtin.find_files({ search_dirs = { "/home/jim" } }))
+vim.keymap.set("n", "<leader>fz", ":lua builtin.find_files({ search_dirs = { '/home/jim'} })<cr>")
+-- vim.keymap.set("n", "<leader>fz", ":lua Telescope find_files({search_dirs = { '/home/jim'}})<cr>")
+-- vim.keymap.set("n", "<leader>fz", "<cmd>Telescope find_files({search_dirs = { '/home/jim'}})<cr>")
 
 --     keep cursor in center
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
