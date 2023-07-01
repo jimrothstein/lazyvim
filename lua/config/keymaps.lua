@@ -52,12 +52,22 @@ vim.keymap.set("n", "<leader>ic", "yypVr-I# <ESC>")
 -- Sets Root Dir to HOME, gives ERROR TODO
 local builtin = require("telescope.builtin")
 --------------------------------------------
--- vim.keymap.set("n", "<leader>fz", builtin.find_files({ cwd = "~" }))
--- ALMOST:  loads when nvim opens !
--- vim.keymap.set("n", "<leader>fz", builtin.find_files({ search_dirs = { "/home/jim" } }))
-vim.keymap.set("n", "<leader>fz", ":lua builtin.find_files({ search_dirs = { '/home/jim'} })<cr>")
--- vim.keymap.set("n", "<leader>fz", ":lua Telescope find_files({search_dirs = { '/home/jim'}})<cr>")
--- vim.keymap.set("n", "<leader>fz", "<cmd>Telescope find_files({search_dirs = { '/home/jim'}})<cr>")
+
+-- TEST:    :lua require("telescope.builtin").$NAME_OF_PICKEr
+--[[
+require("telescope.builtin").live_grep({
+  prompt_title = "find string in open bufs",
+  grep_open_files = true,
+})
+--]]
+--
+vim.keymap.set("n", "<leader>fh", function()
+  require("telescope.builtin").find_files({ previewer = false, search_dirs = { "~/.dotfiles" } })
+end)
+
+-- works
+vim.keymap.set("n", "<leader>fh", ":lua require('telescope.builtin').find_files( {search_dirs={'~/dotfiles'}})<cr>")
+vim.keymap.set("n", "<leader>fz", ":lua require('telescope.builtin').find_files( {search_dirs={'~'}})<cr>")
 
 --     keep cursor in center
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
