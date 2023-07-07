@@ -18,6 +18,7 @@
 --
 --
 vim.keymap.set("n", "<leader>:", ":RStop")
+vim.keymap.set("n", "<leader>cg", "<C-Q>") -- close R graph
 
 -- Experimental
 vim.keymap.set("n", "<leader>:l", "<ALT-l>")
