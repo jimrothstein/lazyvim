@@ -262,5 +262,5 @@ return {
         end, { "i", "s" }),
       })
     end,
-  },
-}
+  }, -- ends hrsh7th
+} -- entire `return`
