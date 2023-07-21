@@ -1,6 +1,13 @@
---              DOES NOT WORK
---              kills ALL snippets
 --
+-- 21-July-2023
+
+--          To load:  nvim/init.lua MUST require('config.luasnip')
+--          WHY? lazyvim auto loads only the 4 files in config (?)
+--          TODO:
+--              *   DO NOT BREAK !!
+--              *   Find correct place/config for luasnip receipes
+--              *   Config nvim-cmp, or options.lua (?) so MENU appears
+--              *   DUP shortcuts, FIX
 --
 --  PURPOSE:    Practice area to test/debug luasnips BEFORE add to my lua config
 --  REF:   https://github.com/L3MON4D3/LuaSnip/blob/master/DOC.md
@@ -53,7 +60,7 @@ local filename = function()
   return { vim.fn.expand("%:p") }
 end
 
-ls.add_snippets("all", {
+ls.add_snippets("all", { -- 'all' = global
   s("ternary", {
     -- equivalent to "${1:cond} ? ${2:then} : ${3:else}"
     i(1, "cond"),
