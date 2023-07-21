@@ -1,4 +1,3 @@
---[[
 --              DOES NOT WORK
 --              kills ALL snippets
 --
@@ -96,4 +95,3 @@ ls.add_snippets("all", {
     func(filename, {}),
   }),
 })
---]]
