@@ -50,6 +50,7 @@ return {
   },
 
   -- override nvim-cmp and add cmp-emoji
+  -- nvim-cmp is plugin, provides autocompletion to neovim.  Sources (buffer, LSP, ...) must be configured.
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
@@ -62,6 +63,7 @@ return {
       opts.sources = cmp.config.sources(vim.list_extend(opts.sources, {
         { name = "emoji" },
         { name = "cmp_nvim_r" },
+        { name = "luasnip" }, -- jr added
       }))
     end,
   },

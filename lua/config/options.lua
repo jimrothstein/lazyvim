@@ -62,6 +62,7 @@ vim.opt.expandtab = true
 -- vim.cmd([[set completeopt=menuone,noinsert,noselect]])
 -- another says
 -- vim.opt.completeopt = { "menu", "menuone", "noselect" }
+--
 
 --
 
