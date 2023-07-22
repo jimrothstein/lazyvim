@@ -1,4 +1,9 @@
 --
+-- 21-July-2023  nvim-cmp.lua is working; luasnip working
+-- TODO  remove legacy jr_modified.lua
+-- TODO: code below, still not sure HOW to clean up; remove TAB in nvim-cmp completion
+-- TODO: and bring back MENU
+--
 -- 2023-06-15
 --  -   JR:  modified example
 -- every spec file under the "plugins" directory will be loaded automatically by lazy.nvim
