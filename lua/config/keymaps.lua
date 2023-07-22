@@ -32,20 +32,11 @@ vim.keymap.set("i", "kk", "<ESC>")
 --  insert # --------...
 vim.keymap.set("n", "<leader>ic", "yypVr-I# <ESC>")
 
--- cd ~/.config/nvim/lua/config/ (conflict)
--- vim.keymap.set("n", "<leader>gC", ":cd ~/.config/nvim/lua/config/<CR>")
-
 ----------------------------------
 --TODO:  virtualedit mode
 --vim.keymap.set("n", "<leader><Tab>", "12i<TAB>##")
 --  move cursor 12 tabs, insert ##
 --
---  cmp is hijacking my TAB key
--- vim.keymap.set("i", "<Tab>", " <Tab>")
---
---
-
--- vim.keymap.set("x", '<leader>p', "\"_dP)
 
 --      required, not sure
 -- require("telescope")
@@ -89,14 +80,6 @@ vim.keymap.set("n", "<A-h>", "<C-w>h")
 -- vim.keymap.set("n", "<S-k>", ":call ResizeUp(1)<CR><Esc>")
 -- vim.keymap.set("n", "<S-j>", ":call ResizeDown(1)<CR><Esc>")   -- <S-j> concatinate 2 lines
 
--- Buffer switching.
--- vim.keymap.set("n", "<S-Tab>", ":BufferLineCyclePrev<CR>")
--- vim.keymap.set("n", "<Tab>", ":BufferLineCycleNext<CR>")
-
--- Moving lines in visual select.
--- map("v", "K", ":move '<-2<CR>gv-gv")
--- map("v", "J", ":move '>+1<CR>gv-gv")
-
 -- ToggleTerm
 local function set_terminal_keymaps()
   vim.keymap.set("t", "<esc>", "<C-\\><C-n>")
@@ -130,10 +113,13 @@ vim.keymap.set("v", "p", '"_dP')
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
---  STOLE from :h which-key help
+-----------------------------------
+-- FUTURE? get things working FIRsT
+-----------------------------------
+--[[
 --
+--  STOLE from :h which-key help
 local wk = require("which-key")
-
 wk.register({
   ["<leader>"] = {
     f = {
@@ -152,9 +138,12 @@ wk.register({
     },
   },
 })
+--]]
+--
 ---------------------------------------------------------------------------------------------
 -- REF:    https://raw.githubusercontent.com/hackorum/nfs/master/lua/whichkey-config/init.lua
 ---------------------------------------------------------------------------------------------
+--[[
 local mappings = {
   E = { ":e ~/.config/nvim/init.lua<cr>", "Edit nvim config" },
   Q = { ":wqa<cr>", "Save & Quit ALL" },
@@ -162,6 +151,7 @@ local mappings = {
 
 local opts = { prefix = "<leader>" }
 wk.register(mappings, opts)
+]]
 ---------------------- END ----------------------
 --      FUTURE
 --  several mappings:
