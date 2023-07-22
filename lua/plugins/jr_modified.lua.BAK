@@ -1,8 +1,4 @@
--- 21-July-2023 - deprecated this entire file (see *.BAK to restore)
-if true then
-  return {}
-end
-
+--
 -- 2023-06-15
 --  -   JR:  modified example
 -- every spec file under the "plugins" directory will be loaded automatically by lazy.nvim
@@ -207,7 +203,7 @@ return {
     --  return {}
     -- end,
   },
-  --[[
+  --[
   -- then: setup supertab in cmp
   {
     "hrsh7th/nvim-cmp",
@@ -251,5 +247,5 @@ return {
       })
     end,
   },
-  --]]
+  --]
 }
