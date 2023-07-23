@@ -3,15 +3,6 @@ return {
   -- Nvim-R  (2023-06-15:   try NOT to use lsp r server, till know what I am doing)
   { "jalvesaq/Nvim-R" },
 
-  -- cmp-nvim-r
-  {
-    --   "jalvesaq/cmp-nvim-r",
-    -- require("cmp_nvim_r").setup({
-    -- filetypes = { "r", "rmd", "quarto" },
-    -- doc_width = 58,
-    -- }),
-  },
-
   ------------------------------
   --    HOLD till R is working
   ------------------------------

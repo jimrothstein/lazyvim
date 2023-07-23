@@ -22,8 +22,8 @@ return {
     --  return {}
     -- end,
   },
-  --[
-  -- then: setup supertab in cmp
+
+  -- hrsh7th/nvim-cmp needed for menu to appear in luasnip
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
@@ -66,5 +66,4 @@ return {
       })
     end,
   },
-  --]
 }
