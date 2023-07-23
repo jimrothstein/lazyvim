@@ -23,12 +23,17 @@ return {
     -- end,
   },
 
+  --  this is in default settings
+  {
+    --  "saadparwaiz1/cmp_luasnip",
+  },
   -- hrsh7th/nvim-cmp needed for menu to appear in luasnip
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
       "hrsh7th/cmp-emoji",
     },
+    -- TODO: Compare this to lazyvim defaults !
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
       local has_words_before = function()
