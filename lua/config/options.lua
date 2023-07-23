@@ -24,6 +24,8 @@ end
 vim.g.mapleader = " "
 -- Primegean likes
 
+vim.g.localmapleader = " "
+
 -- vim.opt.guicursor = "" (I don't like)
 -- remains block in insert mode
 
