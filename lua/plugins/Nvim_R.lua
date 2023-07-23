@@ -5,13 +5,17 @@ return {
 
   -- cmp-nvim-r
   {
-    "jalvesaq/cmp-nvim-r",
+    --   "jalvesaq/cmp-nvim-r",
     -- require("cmp_nvim_r").setup({
-    filetypes = { "r", "rmd", "quarto" },
-    doc_width = 58,
+    -- filetypes = { "r", "rmd", "quarto" },
+    -- doc_width = 58,
     -- }),
   },
 
+  ------------------------------
+  --    HOLD till R is working
+  ------------------------------
+  --[[
   -- override nvim-cmp and add cmp-emoji
   -- nvim-cmp is plugin, provides autocompletion to neovim.  Sources (buffer, LSP, ...) must be configured.
   {
@@ -30,4 +34,6 @@ return {
       }))
     end,
   },
+  --]]
+  --
 }

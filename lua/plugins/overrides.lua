@@ -75,7 +75,7 @@ return {
         ["<leader>g"] = { name = "+Git" },
         ["<leader>gh"] = { name = "+Hunks" },
         ["<leader>q"] = { name = "+Session" },
-        ["<leader>r"] = { name = "+R" }, -- jr added
+        -- ["<leader>r"] = { name = "+R" }, -- jr added
         ["<leader>s"] = { name = "+Search" },
         ["<leader>p"] = { name = "+Plugins" },
         ["<leader>u"] = { name = "+UI" },

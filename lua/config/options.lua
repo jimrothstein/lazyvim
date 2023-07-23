@@ -2,6 +2,14 @@
 -- Add any additional options here
 --
 
+vim.g.mapleader = " "
+-- Primegean likes
+
+vim.g.localmapleader = " "
+
+-- vim.opt.guicursor = "" (I don't like)
+-- remains block in insert mode
+--
 ----------
 --  Nvim-R
 ----------
@@ -20,14 +28,6 @@ local HOST = os.getenv("HOST") --- which machine?
 if true then
   print("LUA thinks I am using " .. vim.inspect(HOST))
 end
-
-vim.g.mapleader = " "
--- Primegean likes
-
-vim.g.localmapleader = " "
-
--- vim.opt.guicursor = "" (I don't like)
--- remains block in insert mode
 
 vim.opt.numberwidth = 3
 
