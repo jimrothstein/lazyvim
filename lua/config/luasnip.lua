@@ -9,8 +9,9 @@
 --              *   Config nvim-cmp, or options.lua (?) so MENU appears
 --              *   DUP shortcuts, FIX
 --
---  PURPOSE:    Practice area to test/debug luasnips BEFORE add to my lua config
 --  REF:   https://github.com/L3MON4D3/LuaSnip/blob/master/DOC.md
+--  REF (video:)  ziontee113 <https://www.youtube.com/watch?v=ub0REXjhpmk&t=175s>
+--    -   he adds snippets to table, and returns table.
 --
 -- required shortcuts
 --
@@ -52,6 +53,7 @@ local func = ls.function_node
 local choice = ls.choice_node
 local dynamicn = ls.dynamic_node
 
+-- HELPER
 local test1 = function()
   return { os.date("%d-%B-%Y") }
 end
@@ -61,6 +63,14 @@ local filename = function()
 end
 
 ls.add_snippets("all", { -- 'all' = global
+  s("snip1", { t("first") }), -- s takes 2 args, <name> and table
+  --
+  s("snip2", {
+    t("second"),
+    i(1, " placeholder"), -- position 1,
+    t({ "", "new line" }), -- t takes a table, for new line
+  }), -- s takes 2 args, <name> and table
+
   s("ternary", {
     -- equivalent to "${1:cond} ? ${2:then} : ${3:else}"
     i(1, "cond"),
