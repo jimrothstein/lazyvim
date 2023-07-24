@@ -101,4 +101,18 @@ ls.add_snippets("all", { -- 'all' = global
   s({ trig = "file", dscr = "insert filename" }, {
     func(filename, {}),
   }),
-})
+
+  --  s({ trig = "filei", dscr = "insert filename" }, {
+  --   "file =" .. func(filename, {}),
+  -- }),
+  --
+  s("trigger4", {
+    t({ "After expanding, the cursor is here, then <TAB> ->" }),
+    i(1),
+    t({ "", "After jumping forward once, cursor is here ->" }),
+    i(2),
+    t({ "", "After jumping once more, the snippet is exited there ->" }),
+    i(0),
+  }),
+  --
+}) -- end all snippets
