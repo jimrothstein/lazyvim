@@ -16,7 +16,19 @@
 -- 31MAY2023
 ----------------------------------
 --
---
+-- STUDY:  https://github.com/jalvesaq/Nvim-R/issues/711--
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+vim.keymap.set("", "<Space>", "<Nop>")
+
+vim.keymap.set("i", "<C-Space>", "<C-x><C-o>")
+vim.keymap.set("n", "<silent>", "<C-H> <Cmd>noh<CR>")
+
+vim.keymap.set("v", "<Enter>", "<Plug>RDSendSelection")
+vim.keymap.set("n", "<Enter>", "<Plug>RDSendLine")
+
+-- rest is mine
+
 vim.keymap.set("n", "<leader>:", ":RStop")
 vim.keymap.set("n", "<leader>cg", "<C-Q>") -- close R graph
 
@@ -113,16 +125,13 @@ vim.keymap.set("v", "p", '"_dP')
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
------------------------------------
--- FUTURE? get things working FIRsT
------------------------------------
---[[
 --
---  STOLE from :h which-key help
+-- Experimental 2023-07-25
+--  STOLE from :h which-key help (method 2)
 local wk = require("which-key")
 wk.register({
   ["<leader>"] = {
-    f = {
+    R = {
       name = "+file", -- optional group name
       -- vim.keymap.set("n", "<leader>fz", builtin.find_files({ cwd = "~" }))
       -- ho = { "<cmd>Telescope find_files({cwd = '~'})<cr>", "Find - from home" }, --
@@ -131,16 +140,16 @@ wk.register({
       -- r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File", noremap = false, buffer = 123 }, -- additional options for creating the keymap
       n = { "FAKE !" }, -- just a label. don't create any mapping
       e = "FAKE !! ", -- same as above
+      r = { "<leader>rf", "Start R" },
     },
-    w = {
-      name = "Windows",
-      Q = { "<cmd>qa<cr>", "Quit and Close All Windows" },
-    },
+    --   w = {
+    --     name = "Windows",
+    --     Q = { "<cmd>qa<cr>", "Quit and Close All Windows" },
+    --   },
   },
 })
---]]
---
----------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------
 -- REF:    https://raw.githubusercontent.com/hackorum/nfs/master/lua/whichkey-config/init.lua
 ---------------------------------------------------------------------------------------------
 --[[
