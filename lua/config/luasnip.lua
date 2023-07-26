@@ -124,6 +124,20 @@ ls.add_snippets("all", { -- 'all' = global
     t({ "", "After jumping once more, the snippet is exited there ->" }),
     i(0),
   }),
-  --
-  s("snip6", {}),
+  -- create generic function; use 3 placeholders &  fmt (A,B),
+  s(
+    "snip6",
+    fmt(
+      [[     
+    local {} = function( {})
+    {}
+  end
+    ]],
+      {
+        i(1, ""),
+        i(2, ""),
+        i(3, "-- TODO "),
+      }
+    ) -- fmt
+  ), -- snip6
 }) -- end all snippets
