@@ -6,14 +6,6 @@
 --
 --
 -- TODO
--- 2023-06-05
--- -    virtualedit mode?   to position cursor on EMPTY line
--- -    LazyVim includes several keymaps!   I maybe duplicating !
--- 2023-06-04
--- -    fixed a few errors,  fz remains
--- 2023-06-03
---      vim.keymap.set("n", "<leader>pv", vim.cmd.e)
--- 31MAY2023
 ----------------------------------
 --
 -- STUDY:  https://github.com/jalvesaq/Nvim-R/issues/711--
@@ -131,7 +123,7 @@ vim.keymap.set("v", ">", ">gv")
 local wk = require("which-key")
 wk.register({
   ["<leader>"] = {
-    R = {
+    Q = {
       name = "+file", -- optional group name
       -- vim.keymap.set("n", "<leader>fz", builtin.find_files({ cwd = "~" }))
       -- ho = { "<cmd>Telescope find_files({cwd = '~'})<cr>", "Find - from home" }, --
@@ -140,12 +132,7 @@ wk.register({
       -- r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File", noremap = false, buffer = 123 }, -- additional options for creating the keymap
       n = { "FAKE !" }, -- just a label. don't create any mapping
       e = "FAKE !! ", -- same as above
-      r = { "<leader>rf", "Start R" },
     },
-    --   w = {
-    --     name = "Windows",
-    --     Q = { "<cmd>qa<cr>", "Quit and Close All Windows" },
-    --   },
   },
 })
 
