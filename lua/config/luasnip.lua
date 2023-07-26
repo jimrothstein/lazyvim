@@ -70,7 +70,7 @@ ls.add_snippets("all", { -- 'all' = global
     i(1, " placeholder"), -- position 1,
     t({ "", "new line" }), -- t takes a table, for new line
   }), -- s takes 2 args, <name> and table
-
+  --
   s("ternary", {
     -- equivalent to "${1:cond} ? ${2:then} : ${3:else}"
     i(1, "cond"),
@@ -125,4 +125,5 @@ ls.add_snippets("all", { -- 'all' = global
     i(0),
   }),
   --
+  s("snip6", {}),
 }) -- end all snippets
