@@ -140,4 +140,9 @@ ls.add_snippets("all", { -- 'all' = global
       }
     ) -- fmt
   ), -- snip6
+
+  -- Add separator
+  --
+  s("sep", t({ "---------------" })),
+  --
 }) -- end all snippets
