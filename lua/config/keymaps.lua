@@ -17,7 +17,7 @@ vim.keymap.set("i", "<C-Space>", "<C-x><C-o>")
 vim.keymap.set("n", "<silent>", "<C-H> <Cmd>noh<CR>")
 
 vim.keymap.set("v", "<Enter>", "<Plug>RDSendSelection")
-vim.keymap.set("n", "<Enter>", "<Plug>RDSendLine")
+-- vim.keymap.set("n", "<Enter>", "<Plug>RDSendLine")
 
 -- rest is mine
 

@@ -62,6 +62,10 @@ local filename = function()
   return { vim.fn.expand("%:p") }
 end
 
+ls.add_snippets("quarto", {
+  s("snip10", { t("this is qmd!") }),
+})
+
 ls.add_snippets("all", { -- 'all' = global
   s("snip1", { t("first") }), -- s takes 2 args, <name> and table
   --
