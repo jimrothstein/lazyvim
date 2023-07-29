@@ -3,9 +3,9 @@
 -- Which-Key  - this adds features.  seems to work ok.
 -- Anything does not work?    Just remoove this file.
 --
-if true then
-  return {}
-end
+-- if true then
+--   return {}
+-- end
 
 local Util = require("lazyvim.util")
 
