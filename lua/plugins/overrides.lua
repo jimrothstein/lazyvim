@@ -1,11 +1,10 @@
 -- stolen from < https://github.com/justinsgithub/dotfiles/tree/main/neovim/.config/nvim/lua/plugins>
--- 2023-07-20
--- Which-Key  - this adds features.  seems to work ok.
--- Anything does not work?    Just remoove this file.
 --
 -- if true then
 --   return {}
 -- end
+--
+-- PURPOSE:   plugin code here OVERWRITES the defaults from lazyvim
 
 local Util = require("lazyvim.util")
 

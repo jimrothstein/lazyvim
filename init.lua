@@ -6,3 +6,11 @@ require("config.lazy")
 --
 require("config.bees") -- runs ~/.config/nvim/lua/config/bees.lua
 require("config.luasnip") -- runs ~/.config/nvim/lua/config/luasnip.lua (my snips)
+
+-- suggested by TJ; till I create my own utilities.lua
+-- USAGE:   P({key="value"})
+
+P = function(v)
+  print(vim.inspect(v))
+  return v
+end
