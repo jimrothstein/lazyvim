@@ -7,6 +7,8 @@ require("config.lazy")
 require("config.bees") -- runs ~/.config/nvim/lua/config/bees.lua
 require("config.luasnip") -- runs ~/.config/nvim/lua/config/luasnip.lua (my snips)
 
+require("stackmap") -- TJ's plugin
+
 -- suggested by TJ; till I create my own utilities.lua
 -- USAGE:   P({key="value"})
 

@@ -1,4 +1,6 @@
--- TJ Plugin example:   he calls  it `mapstack`
+local M = {}
+
+-- TJ Plugin example:   he calls  it `mapstack`  require('mapstack')
 -- REF:   https://www.youtube.com/watch?v=n4Lp4cV8YR0&t=1951s
 --
 -- vim.api package/class
@@ -6,28 +8,84 @@
 --    nvim_set_keymap()
 --    nvim_get_keymap()
 --
---
--- usage:  :lua P({key = "value"}), will print key=value
-P = function(v)
-  print(vim.inspect(v))
-  return v
-end
+local find_mapping = function(maps, lhs)
+  -- pairs
+  --    iterates over EVERY key in a table
+  --    order not guaranteed
+  -- ipairs
+  --    iteratres over ONLY numeric keys in a table
+  --    order IS guaranteed
+  for _, value in ipairs(maps) do
+    if value.lhs == lhs then
+      return value
+    end
+  end
+end -- find_mapping
 
---
---    vim.api
-local M = {}
--- USAGE:   require(`mapstack`).push()
+M._stack = {}
+
 M.push = function(name, mode, mappings)
   local maps = vim.api.nvim_get_keymap(mode)
-  -- P(maps)
+
+  local existing_maps = {}
+  for lhs, rhs in pairs(mappings) do
+    local existing = find_mapping(maps, lhs)
+    if existing then
+      existing_maps[lhs] = existing
+    end
+  end
+
+  for lhs, rhs in pairs(mappings) do
+    -- TODDO: need some way to pass options in here
+    vim.keymap.set(mode, lhs, rhs)
+  end
+
+  -- TODO: Next time show bash about metatables POGSLIDE
+  --
+  M._stack[name] = M._stack[name] or {}
+
+  M._stack[name][mode] = {
+    existing = existing_maps,
+    mappings = mappings,
+  }
+end -- M.push
+
+M.pop = function(name, mode)
+  local state = M._stack[name][mode]
+  M._stack[name][mode] = nil
+
+  for lhs in pairs(state.mappings) do
+    if state.existing[lhs] then
+      -- Handle mappings that existed
+      local og_mapping = state.existing[lhs]
+
+      -- TODO: Handle the options from the table
+      vim.keymap.set(mode, lhs, og_mapping.rhs)
+    else
+      -- Handled mappings that didn't exist
+      vim.keymap.del(mode, lhs)
+    end
+  end
 end
 
-M.pop = function(name) end
-
-M.push("debug_mode", "n", {
-  ["<leader>st"] = "echo 'hi'",
-  ["<leader>sz"] = "echo 'cye'",
+--[[
+lua require("mapstack").push("debug_mode", "n", {
+  ["<leader>st"] = "echo 'Hello'",
+  ["<leader>sz"] = "echo 'Goodbye'",
 })
---  :x,y source
---
+
+...
+
+push "debug"
+push "other"
+pop "debug"
+pop "other
+
+lua require("mapstack").pop("debug_mode")
+--]]
+
+M._clear = function()
+  M._stack = {}
+end
+
 return M
