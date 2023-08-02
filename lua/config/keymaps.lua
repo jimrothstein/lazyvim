@@ -32,6 +32,21 @@ vim.keymap.set("n", "<leader>:h", "<ALT-h>")
 vim.keymap.set("i", "jj", "<ESC>")
 vim.keymap.set("i", "kk", "<ESC>")
 ----------------------------------
+-- PURPOSE:   Make it easy to jump back to very last file edited of each type.
+-- USEAGE:    'C   to return to last CSS, SCSS file edited
+-- REF:       https://gist.github.com/romainl/3e0cb99343c72d04e9bc10f6d76ebbef
+vim.cmd([[
+augroup AutomaticMarks
+    autocmd!
+    autocmd BufLeave *.css,*.scss normal! mC
+    autocmd BufLeave *.lua        normal! mL
+    autocmd BufLeave *.yml,*.yaml normal! mY
+    autocmd BufLeave *.md         normal! mM
+    autocmd BufLeave *.R *.Rmd    normal! mR
+    autocmd BufLeave *.qmd        normal! mQ
+    autocmd BufLeave *.zsh        normal! mZ
+augroup END
+]])
 
 --  insert # --------...
 vim.keymap.set("n", "<leader>ic", "yypVr-I# <ESC>")
