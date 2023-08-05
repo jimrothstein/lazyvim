@@ -5,6 +5,16 @@
 --  <mapleader>, <maplocalleader>   -- SEE keymaps.lua
 -- vim.g.mapleader = " "
 -- vim.g.localmapleader = " "
+--
+----------------
+-- Experiemental
+----------------
+--
+--
+-- {{{  fold
+vim.o.foldmethod = "marker" --
+vim.o.foldlevel = 0 --
+-- }}}
 
 --
 ----------
