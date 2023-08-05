@@ -6,8 +6,29 @@
 --
 --
 -- TODO
+--  Stole from https://github.com/sum-rock/just-sum-nix/blob/master/homes/modules/neovim/lua/navigation.lua
+--  Telescope:  include hidden files
+--  Telescope:  CLEAN UP
 ----------------------------------
 --
+------------------------------------
+--      Command line (EX) navigation
+------------------------------------
+--
+vim.keymap.set("c", "<C-A>", "<HOME>")
+vim.keymap.set("c", "<C-F>", "<RIGHT>") -- one char
+vim.keymap.set("c", "<C-B>", "<LEFT>") -- one char
+vim.keymap.set("c", "<M-B>", "<S-LEFT>") -- one word
+vim.keymap.set("c", "<M-F>", "<S-RIGHT>")
+
+--[[  BUILTIN:
+--  <C-W> delete word just before cursor
+--  <C-U> delete from CURSOR left
+--
+--]]
+---------------
+--    R, Nvim-R
+---------------
 -- STUDY:  https://github.com/jalvesaq/Nvim-R/issues/711--
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -31,7 +52,26 @@ vim.keymap.set("n", "<leader>:h", "<ALT-h>")
 --  easy ESC
 vim.keymap.set("i", "jj", "<ESC>")
 vim.keymap.set("i", "kk", "<ESC>")
+
+--
+--
+----------------------------------------------------------
+-- PUPORSE:   create user defined function
+-- USAGE:    :Say Jim | :Say a b c
+--           : Lost
+--           : GoLC,  1st letter MUST be capitalized
+-- NOTE:     command!  means overwrite with new version
+-- TODO:      Put into lua
+-- SEE /home/jim/code/lua_project/130_user_defined_command.lua
+----------------------------------------------------------
+--
+vim.cmd([[
+  :command! -nargs=+ Say :echo "<args>"
+  :command! -nargs=0 Lost :pwd
+  :command! -nargs=0 GoLC :cd ~/.config/nvim/lua/config/ 
+  ]])
 ----------------------------------
+--
 -- PURPOSE:   Make it easy to jump back to very last file edited of each type.
 -- USEAGE:    'C   to return to last CSS, SCSS file edited
 -- REF:       https://gist.github.com/romainl/3e0cb99343c72d04e9bc10f6d76ebbef
@@ -57,11 +97,7 @@ vim.keymap.set("n", "<leader>ic", "yypVr-I# <ESC>")
 --  move cursor 12 tabs, insert ##
 --
 
---      required, not sure
--- require("telescope")
-
--- Sets Root Dir to HOME, gives ERROR TODO
-local builtin = require("telescope.builtin")
+--
 --------------------------------------------
 
 -- TEST:    :lua require("telescope.builtin").$NAME_OF_PICKEr
@@ -164,6 +200,3 @@ local opts = { prefix = "<leader>" }
 wk.register(mappings, opts)
 ]]
 ---------------------- END ----------------------
---      FUTURE
---  several mappings:
---  Stole from https://github.com/sum-rock/just-sum-nix/blob/master/homes/modules/neovim/lua/navigation.lua
