@@ -6,17 +6,21 @@
 --
 --
 -- TODO
--- 2023-06-05
--- -    virtualedit mode?   to position cursor on EMPTY line
--- -    LazyVim includes several keymaps!   I maybe duplicating !
--- 2023-06-04
--- -    fixed a few errors,  fz remains
--- 2023-06-03
---      vim.keymap.set("n", "<leader>pv", vim.cmd.e)
--- 31MAY2023
 ----------------------------------
 --
---
+-- STUDY:  https://github.com/jalvesaq/Nvim-R/issues/711--
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+vim.keymap.set("", "<Space>", "<Nop>")
+
+vim.keymap.set("i", "<C-Space>", "<C-x><C-o>")
+vim.keymap.set("n", "<silent>", "<C-H> <Cmd>noh<CR>")
+
+vim.keymap.set("v", "<Enter>", "<Plug>RDSendSelection")
+-- vim.keymap.set("n", "<Enter>", "<Plug>RDSendLine")
+
+-- rest is mine
+
 vim.keymap.set("n", "<leader>:", ":RStop")
 vim.keymap.set("n", "<leader>cg", "<C-Q>") -- close R graph
 
@@ -28,6 +32,21 @@ vim.keymap.set("n", "<leader>:h", "<ALT-h>")
 vim.keymap.set("i", "jj", "<ESC>")
 vim.keymap.set("i", "kk", "<ESC>")
 ----------------------------------
+-- PURPOSE:   Make it easy to jump back to very last file edited of each type.
+-- USEAGE:    'C   to return to last CSS, SCSS file edited
+-- REF:       https://gist.github.com/romainl/3e0cb99343c72d04e9bc10f6d76ebbef
+vim.cmd([[
+augroup AutomaticMarks
+    autocmd!
+    autocmd BufLeave *.css,*.scss normal! mC
+    autocmd BufLeave *.lua        normal! mL
+    autocmd BufLeave *.yml,*.yaml normal! mY
+    autocmd BufLeave *.md         normal! mM
+    autocmd BufLeave *.R *.Rmd    normal! mR
+    autocmd BufLeave *.qmd        normal! mQ
+    autocmd BufLeave *.zsh        normal! mZ
+augroup END
+]])
 
 --  insert # --------...
 vim.keymap.set("n", "<leader>ic", "yypVr-I# <ESC>")
@@ -113,16 +132,13 @@ vim.keymap.set("v", "p", '"_dP')
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
------------------------------------
--- FUTURE? get things working FIRsT
------------------------------------
---[[
 --
---  STOLE from :h which-key help
+-- Experimental 2023-07-25
+--  STOLE from :h which-key help (method 2)
 local wk = require("which-key")
 wk.register({
   ["<leader>"] = {
-    f = {
+    Q = {
       name = "+file", -- optional group name
       -- vim.keymap.set("n", "<leader>fz", builtin.find_files({ cwd = "~" }))
       -- ho = { "<cmd>Telescope find_files({cwd = '~'})<cr>", "Find - from home" }, --
@@ -132,15 +148,10 @@ wk.register({
       n = { "FAKE !" }, -- just a label. don't create any mapping
       e = "FAKE !! ", -- same as above
     },
-    w = {
-      name = "Windows",
-      Q = { "<cmd>qa<cr>", "Quit and Close All Windows" },
-    },
   },
 })
---]]
---
----------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------
 -- REF:    https://raw.githubusercontent.com/hackorum/nfs/master/lua/whichkey-config/init.lua
 ---------------------------------------------------------------------------------------------
 --[[

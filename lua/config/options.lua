@@ -2,13 +2,20 @@
 -- Add any additional options here
 --
 
-vim.g.mapleader = " "
--- Primegean likes
+--  <mapleader>, <maplocalleader>   -- SEE keymaps.lua
+-- vim.g.mapleader = " "
+-- vim.g.localmapleader = " "
+--
+----------------
+-- Experiemental
+----------------
+--
+--
+-- {{{  fold
+vim.o.foldmethod = "marker" --
+vim.o.foldlevel = 0 --
+-- }}}
 
-vim.g.localmapleader = " "
-
--- vim.opt.guicursor = "" (I don't like)
--- remains block in insert mode
 --
 ----------
 --  Nvim-R
@@ -45,8 +52,6 @@ vim.g.listchars = "tab:>-,space:="
 
 vim.opt.conceallevel = 0 -- show chunk markers
 vim.opt.tabstop = 2
--- default:  omits this
---vim.opt.softtabstop = 4
 --
 vim.opt.shiftwidth = 2
 
@@ -72,11 +77,3 @@ local function nohl_or_buffer_cycle()
 end
 
 vim.keymap.set("n", "<C-l>", nohl_or_buffer_cycle)
-
------------------------------------------
---      Below, default options (REF ONLY)
------------------------------------------
---
-if true then
-  return {}
-end

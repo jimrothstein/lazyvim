@@ -62,6 +62,10 @@ local filename = function()
   return { vim.fn.expand("%:p") }
 end
 
+ls.add_snippets("quarto", {
+  s("snip10", { t("this is qmd!") }),
+})
+
 ls.add_snippets("all", { -- 'all' = global
   s("snip1", { t("first") }), -- s takes 2 args, <name> and table
   --
@@ -70,7 +74,7 @@ ls.add_snippets("all", { -- 'all' = global
     i(1, " placeholder"), -- position 1,
     t({ "", "new line" }), -- t takes a table, for new line
   }), -- s takes 2 args, <name> and table
-
+  --
   s("ternary", {
     -- equivalent to "${1:cond} ? ${2:then} : ${3:else}"
     i(1, "cond"),
@@ -124,5 +128,25 @@ ls.add_snippets("all", { -- 'all' = global
     t({ "", "After jumping once more, the snippet is exited there ->" }),
     i(0),
   }),
+  -- create generic function; use 3 placeholders &  fmt (A,B),
+  s(
+    "snip6",
+    fmt(
+      [[     
+    local {} = function( {})
+    {}
+  end
+    ]],
+      {
+        i(1, ""),
+        i(2, ""),
+        i(3, "-- TODO "),
+      }
+    ) -- fmt
+  ), -- snip6
+
+  -- Add separator
+  --
+  s("sep", t({ "---------------" })),
   --
 }) -- end all snippets
