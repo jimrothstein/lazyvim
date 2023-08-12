@@ -10,7 +10,6 @@
 -- Experiemental
 ----------------
 --
---
 -- {{{  fold
 vim.o.foldmethod = "marker" --
 vim.o.foldlevel = 0 --
