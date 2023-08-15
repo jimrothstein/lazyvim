@@ -1,4 +1,6 @@
 -- Nvim_R.lua  , plugin configure
+-- 2023-08-14:  sort of working, but simple Nvim_R commands screwed up
+--
 return {
   -- Nvim-R  (2023-06-15:   try NOT to use lsp r server, till know what I am doing)
   { "jalvesaq/Nvim-R" },
@@ -25,6 +27,6 @@ return {
       }))
     end,
   },
-  --]]
   --
+  --]]
 }
