@@ -2,13 +2,21 @@
 -- 2023-08-14:  sort of working, but simple Nvim_R commands screwed up
 --
 return {
+
   -- Nvim-R  (2023-06-15:   try NOT to use lsp r server, till know what I am doing)
+  --[[
+  {
+    require("cmp_nvim_r").setup({
+      filetypes = { "r", "rmd", "quarto" },
+      doc_width = 58,
+    }),
+  },
   { "jalvesaq/Nvim-R" },
 
   ------------------------------
   --    HOLD till R is working
   ------------------------------
-  --[[
+  -- [[
   -- override nvim-cmp and add cmp-emoji
   -- nvim-cmp is plugin, provides autocompletion to neovim.  Sources (buffer, LSP, ...) must be configured.
   {
