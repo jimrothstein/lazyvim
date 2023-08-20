@@ -4,6 +4,8 @@
 return {
 
   -- Nvim-R  (2023-06-15:   try NOT to use lsp r server, till know what I am doing)
+  { "jalvesaq/Nvim-R" },
+
   --[[
   {
     require("cmp_nvim_r").setup({
