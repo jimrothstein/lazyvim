@@ -10,6 +10,17 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
+--[[   I have NO 'lspconfig'   -   this FAILS
+-- fixes:   `vim` undefined global issue in .lua 
+require("lspconfig").lua_ls.setup({
+  settings = {
+    diagnostics = {
+      globals = { "vim"}
+    }
+  }
+})
+--]]
+
 require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins  (from LazyVim    GitHub ?)
